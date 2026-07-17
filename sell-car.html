@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Sell Your Car - Cars World</title>
+  <meta content="List your car for sale and get the best offers" name="description">
+  <link rel="icon" type="image/x-icon" href="img/icon.png">
+
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link href="vendor/aos/aos.css" rel="stylesheet">
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <link href="css/booking.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top">
+    <div class="container-fluid d-flex justify-content-between align-items-center">
+      <h1 class="logo me-auto me-lg-0"><img style="height:40px;" src="img/icon-removebg-preview.png"><a href="Home.html">CARS</a></h1>
+      <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul>
+          <li><a href="Home.html" style="color:black">Home</a></li>
+          <li><a href="about.html" style="color:black">About</a></li>
+          <div class="dropdown">
+            <li><a href="#" class="dropbtn" style="color:black">Cars</a></li>
+            <div class="dropdown-content">
+              <a href="Toyota.html">Toyota</a><a href="BMW.html">BMW</a><a href="volkswagen.html">volkswagen</a>
+              <a href="Jaguar.html">Jaguar</a><a href="Maruti Suzuki.html">Maruti Suzuki</a>
+              <a href="Mercedes.html">Mercedes</a><a href="Hundai.html">Hundai</a><a href="Kia.html">Kia</a>
+              <a href="rolls royce.html">rolls royce</a><a href="mg.html">mg</a>
+              <a href="land rover.html">land rover</a><a href="audi.html">audi</a><a href="lamborgini.html">lamborgini</a>
+            </div>
+          </div>
+          <li><a href="booking.html" style="color:black"><i class="bi bi-calendar-check"></i> Book a Car</a></li>
+          <li><a href="sell-car.html" class="active" style="color:#34b7a7"><i class="bi bi-tag"></i> Sell Car</a></li>
+          <li><a href="feedback.html" style="color:black">Feedback Us</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav>
+      <form class="d-flex" action="search.php">
+        <input class="form-control me-2" type="search" placeholder="Search" name="webpage_name" aria-label="Search">
+        <button class="btn btn-outline-success" name="submit" type="submit">Search</button>
+      </form>
+    </div>
+  </header>
+
+  <!-- ======= Hero ======= -->
+  <section class="booking-hero" style="min-height:35vh">
+    <div class="container">
+      <h1>Sell Your Car</h1>
+      <p>Get the best value for your vehicle with our hassle-free listing process.</p>
+    </div>
+  </section>
+
+  <main id="main">
+    <section style="padding:60px 0">
+      <div class="container">
+        <div class="row g-5">
+
+          <!-- Form -->
+          <div class="col-lg-7">
+            <div class="booking-form-wrapper">
+              <h2>Vehicle Information</h2>
+              <form id="sellForm" class="booking-form" data-validate onsubmit="return handleSellSubmit(event)">
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <label class="form-label">Car Brand *</label>
+                    <select class="form-select" id="sBrand" required>
+                      <option value="">-- Select Brand --</option>
+                      <option value="toyota">Toyota</option>
+                      <option value="bmw">BMW</option>
+                      <option value="mercedes">Mercedes-Benz</option>
+                      <option value="hyundai">Hyundai</option>
+                      <option value="maruti">Maruti Suzuki</option>
+                      <option value="kia">Kia</option>
+                      <option value="other">Other</option>
+                    </select>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label">Model Name *</label>
+                    <input type="text" class="form-control" id="sModel" required placeholder="e.g. 3 Series, Fortuner">
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label">Manufacturing Year *</label>
+                    <input type="number" class="form-control" id="sYear" required min="2000" max="2026" placeholder="YYYY">
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label">Kilometers Driven *</label>
+                    <input type="number" class="form-control" id="sKm" required placeholder="e.g. 15000">
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label">Fuel Type *</label>
+                    <select class="form-select" id="sFuel" required>
+                      <option value="petrol">Petrol</option>
+                      <option value="diesel">Diesel</option>
+                      <option value="electric">Electric</option>
+                      <option value="hybrid">Hybrid</option>
+                    </select>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label">Asking Price (Rs) *</label>
+                    <input type="number" class="form-control" id="sPrice" required placeholder="e.g. 4500000">
+                  </div>
+                  <hr class="my-4">
+                  <h2>Seller Details</h2>
+                  <div class="col-md-6">
+                    <label class="form-label">Full Name *</label>
+                    <input type="text" class="form-control" id="sName" required>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label">Mobile Number *</label>
+                    <input type="tel" class="form-control" id="sPhone" required maxlength="10">
+                  </div>
+                  <div class="col-12">
+                    <label class="form-label">City *</label>
+                    <input type="text" class="form-control" id="sCity" required>
+                  </div>
+                  <div class="col-12">
+                    <label class="form-label">Photos (Optional)</label>
+                    <input type="file" class="form-control" multiple>
+                    <small class="text-muted">Clear photos increase your listing score.</small>
+                  </div>
+                </div>
+                <div class="mt-4">
+                  <button type="submit" class="btn-submit" style="width:100%; background:linear-gradient(135deg,#34b7a7,#2a9d8f)">
+                    Submit Listing <i class="bi bi-arrow-right"></i>
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <div class="col-lg-5">
+            <div class="booking-form-wrapper">
+              <h2><i class="bi bi-shield-check" style="color:#34b7a7"></i> Why Sell With Us?</h2>
+              <ul class="list-unstyled mt-3">
+                <li class="mb-3 d-flex">
+                    <i class="bi bi-check-circle-fill text-success me-2"></i>
+                    <div><strong>Wide Reach:</strong> List your car to thousands of potential buyers daily.</div>
+                </li>
+                <li class="mb-3 d-flex">
+                    <i class="bi bi-check-circle-fill text-success me-2"></i>
+                    <div><strong>Best Value:</strong> Get competitive offers based on current market trends.</div>
+                </li>
+                <li class="mb-3 d-flex">
+                    <i class="bi bi-check-circle-fill text-success me-2"></i>
+                    <div><strong>Hassle-Free:</strong> We handle the verification and paperwork for you.</div>
+                </li>
+                <li class="mb-3 d-flex">
+                    <i class="bi bi-check-circle-fill text-success me-2"></i>
+                    <div><strong>Secure Payment:</strong> Guaranteed secure transaction and instant payment.</div>
+                </li>
+              </ul>
+            </div>
+
+            <div class="booking-form-wrapper mt-4">
+               <h5><i class="bi bi-info-circle" style="color:#ffbb2c"></i> Need Help?</h5>
+               <p class="text-muted small">Our experts can help you price your car correctly. Contact us via WhatsApp for a quick evaluation.</p>
+               <a href="#" class="btn btn-outline-success btn-sm w-100">Chat with Expert</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer id="footer">
+    <div class="container">
+      <h2>Contact Me</h2>
+      <div class="row">
+        <div class="col-lg-5" style="font-size:large">
+          <a href="https://www.facebook.com/" class="facebook"><i class="bi bi-facebook"> :- facebook </i></a><br><br>
+          <a href="https://www.instagram.com/car_techinfo" class="instagram"><i class="bi bi-instagram"> :- instagram </i></a>
+        </div>
+        <div class="col-lg-6">
+          <div class="dropdown" style="display:inline-block;margin-right:20px">
+            <li style="list-style:none"><a href="#" class="dropbtn">Cars</a></li>
+            <div class="dropdown-content">
+              <a href="Toyota.html">Toyota</a><br><a href="BMW.html">BMW</a><br><a href="volkswagen.html">volkswagen</a><br>
+              <a href="Jaguar.html">Jaguar</a><br><a href="Maruti Suzuki.html">Maruti Suzuki</a><br><a href="Mercedes.html">Mercedes</a><br>
+              <a href="Hundai.html">Hundai</a><br><a href="Kia.html">Kia</a>
+            </div>
+          </div>
+          <li style="list-style:none;display:inline"><a href="feedback.html">Feedback Us</a></li>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- <div id="preloader"></div> -->
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <script src="vendor/aos/aos.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/booking.js"></script>
+  <script>
+    function handleSellSubmit(e) {
+      e.preventDefault();
+      var brand = document.getElementById('sBrand').value;
+      var model = document.getElementById('sModel').value;
+      var year = document.getElementById('sYear').value;
+      var km = document.getElementById('sKm').value;
+      var price = document.getElementById('sPrice').value;
+      
+      var listingId = BookingUtils.genId('LST', 8);
+      var data = {
+          id: listingId, brand, model, year, km, price, date: new Date().toISOString()
+      };
+      
+      BookingUtils.storeObj('lastListing', data);
+      
+      fetch('/api/sell-car', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      })
+      .then(response => response.json())
+      .then(res => console.log('Listing saved on server:', res))
+      .catch(err => console.error('Failed to save listing on server:', err))
+      .finally(() => {
+        window.location.href = 'sell-listing-success.html?id=' + listingId;
+      });
+      
+      return false;
+    }
+  </script>
+</body>
+</html>
