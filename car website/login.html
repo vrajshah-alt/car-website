@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Login & Signup - Cars World</title>
+  <meta content="Login or Sign Up with your mobile number" name="description">
+  <link rel="icon" type="image/x-icon" href="img/icon.png">
+
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link href="vendor/aos/aos.css" rel="stylesheet">
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <link href="css/booking.css" rel="stylesheet">
+  
+  <style>
+    .auth-page-container {
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 100px 0 60px;
+      background: linear-gradient(135deg, rgba(52, 183, 167, 0.05) 0%, rgba(42, 157, 143, 0.05) 100%);
+    }
+    .auth-glass-card {
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(15px);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      border-radius: 24px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+      padding: 40px;
+      width: 100%;
+      max-width: 450px;
+      transition: all 0.3s ease;
+    }
+    .auth-glass-card:hover {
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.12);
+    }
+    .auth-title h2 {
+      font-weight: 700;
+      background: linear-gradient(135deg, #34b7a7, #2a9d8f);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 8px;
+    }
+    .auth-step-section {
+      display: none;
+    }
+    .auth-step-section.active {
+      display: block;
+      animation: fadeInUp 0.4s ease forwards;
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(15px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top">
+    <div class="container-fluid d-flex justify-content-between align-items-center">
+      <h1 class="logo me-auto me-lg-0"><img style="height:40px;" src="img/icon-removebg-preview.png"><a href="Home.html">CARS</a></h1>
+      <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul>
+          <li><a href="Home.html" style="color:black">Home</a></li>
+          <li><a href="about.html" style="color:black">About</a></li>
+          <div class="dropdown">
+            <li><a href="#" class="dropbtn" style="color:black">Cars</a></li>
+            <div class="dropdown-content">
+              <a href="Toyota.html">Toyota</a><a href="BMW.html">BMW</a><a href="volkswagen.html">volkswagen</a>
+              <a href="Jaguar.html">Jaguar</a><a href="Maruti Suzuki.html">Maruti Suzuki</a>
+              <a href="Mercedes.html">Mercedes</a><a href="Hundai.html">Hundai</a><a href="Kia.html">Kia</a>
+              <a href="rolls royce.html">rolls royce</a><a href="mg.html">mg</a>
+              <a href="land rover.html">land rover</a><a href="audi.html">audi</a><a href="lamborgini.html">lamborgini</a>
+            </div>
+          </div>
+          <li><a href="booking.html" style="color:black"><i class="bi bi-calendar-check"></i> Book a Car</a></li>
+          <li><a href="sell-car.html" style="color:black"><i class="bi bi-tag"></i> Sell Car</a></li>
+          <li><a href="feedback.html" style="color:black">Feedback Us</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav>
+      <form class="d-flex" action="search.php">
+        <input class="form-control me-2" type="search" placeholder="Search" name="webpage_name" aria-label="Search">
+        <button class="btn btn-outline-success" name="submit" type="submit">Search</button>
+      </form>
+    </div>
+  </header>
+
+  <!-- ======= Main Auth Section ======= -->
+  <main id="main">
+    <section class="auth-page-container">
+      <div class="container d-flex justify-content-center">
+        <div class="auth-glass-card">
+          <div class="auth-title text-center mb-4">
+            <h2>Welcome to CARS</h2>
+            <p class="text-muted small">Verify your mobile number to log in or sign up</p>
+          </div>
+
+          <!-- Step 1: Phone -->
+          <div id="stepPhone" class="auth-step-section active">
+            <div class="mb-3">
+              <label for="loginPhone" class="form-label font-weight-600">Mobile Number *</label>
+              <input type="tel" id="loginPhone" class="form-control form-control-lg" placeholder="10-digit mobile number" maxlength="10" required>
+              <div class="invalid-feedback">Please enter a valid 10-digit phone number starting with 6-9.</div>
+            </div>
+            <button class="btn btn-primary w-100 py-3 font-weight-600" id="btnSend" onclick="sendOtpCode()" style="background:linear-gradient(135deg,#34b7a7,#2a9d8f); border:none; border-radius:12px;">
+              Send OTP <i class="bi bi-arrow-right"></i>
+            </button>
+          </div>
+
+          <!-- Step 2: OTP -->
+          <div id="stepOtp" class="auth-step-section">
+            <div class="mb-3">
+              <label for="loginOtp" class="form-label font-weight-600">Enter OTP *</label>
+              <input type="text" id="loginOtp" class="form-control form-control-lg text-center" placeholder="Enter 6-digit code" maxlength="6" style="letter-spacing:6px; font-weight:700;" required>
+              <div class="invalid-feedback">Please enter the correct 6-digit OTP code.</div>
+            </div>
+            <button class="btn btn-warning w-100 py-3 font-weight-600 text-white" id="btnVerify" onclick="verifyOtpCode()" style="background:linear-gradient(135deg,#ffbb2c,#e6a800); border:none; border-radius:12px;">
+              Verify & Log In <i class="bi bi-shield-check"></i>
+            </button>
+            <div class="text-center mt-3">
+              <a href="#" class="text-muted small" onclick="changePhone(); return false;"><i class="bi bi-chevron-left"></i> Change phone number</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="container">
+      <h2>Contact Me</h2>
+      <div class="row">
+        <div class="col-lg-5" style="font-size:large">
+          <a href="https://www.facebook.com/" class="facebook"><i class="bi bi-facebook"> :- facebook </i></a><br><br>
+          <a href="https://www.instagram.com/car_techinfo" class="instagram"><i class="bi bi-instagram"> :- instagram </i></a>
+        </div>
+        <div class="col-lg-6">
+          <div class="dropdown" style="display:inline-block;margin-right:20px">
+            <li style="list-style:none"><a href="#" class="dropbtn">Cars</a></li>
+            <div class="dropdown-content">
+              <a href="Toyota.html">Toyota</a><br><a href="BMW.html">BMW</a><br><a href="volkswagen.html">volkswagen</a><br>
+              <a href="Jaguar.html">Jaguar</a><br><a href="Maruti Suzuki.html">Maruti Suzuki</a><br><a href="Mercedes.html">Mercedes</a><br>
+              <a href="Hundai.html">Hundai</a><br><a href="Kia.html">Kia</a>
+            </div>
+          </div>
+          <li style="list-style:none;display:inline"><a href="feedback.html">Feedback Us</a></li>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="vendor/aos/aos.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/booking.js"></script>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const redirectUrl = params.get('redirect') || 'Home.html';
+    let activePhone = '';
+
+    // Check if user is already logged in
+    if (window.AuthUtils && window.AuthUtils.isLoggedIn()) {
+      window.location.href = redirectUrl;
+    }
+
+    function sendOtpCode() {
+      const phoneInput = document.getElementById('loginPhone');
+      const phone = phoneInput.value.trim().replace(/\s/g,'');
+      if (!/^[6-9]\d{9}$/.test(phone)) {
+        phoneInput.classList.add('is-invalid');
+        return;
+      }
+      phoneInput.classList.remove('is-invalid');
+      
+      const btn = document.getElementById('btnSend');
+      btn.disabled = true;
+      btn.textContent = 'Sending...';
+
+      fetch('/api/send-otp', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ phone })
+      })
+      .then(res => res.json())
+      .then(data => {
+        btn.disabled = false;
+        btn.innerHTML = 'Send OTP <i class="bi bi-arrow-right"></i>';
+        if (data.success) {
+          activePhone = phone;
+          document.getElementById('stepPhone').classList.remove('active');
+          document.getElementById('stepOtp').classList.add('active');
+          
+          // Display the simulated OTP via booking.js toast
+          if (window.AuthUtils && typeof window.AuthUtils.sendOtp === 'function') {
+            // Set verify phone globally so that our verified flow catches it
+            window.AuthUtils._verifyPhone = phone;
+          }
+          // Trigger the standard custom toast alert
+          const toast = document.querySelector('.auth-toast');
+          if (toast) {
+            toast.querySelector('.toast-title').textContent = 'OTP VERIFICATION CODE';
+            toast.querySelector('.toast-msg').textContent = `Your code for ${phone} is: ${data.otp}.`;
+            toast.classList.add('active');
+            setTimeout(() => toast.classList.remove('active'), 8000);
+          } else {
+            alert(`[TESTING OTP] Use code: ${data.otp}`);
+          }
+        } else {
+          alert('Error: ' + (data.error || 'Failed to send OTP'));
+        }
+      })
+      .catch(err => {
+        btn.disabled = false;
+        btn.innerHTML = 'Send OTP <i class="bi bi-arrow-right"></i>';
+        console.error(err);
+        alert('Failed to connect to backend server.');
+      });
+    }
+
+    function verifyOtpCode() {
+      const otpInput = document.getElementById('loginOtp');
+      const otp = otpInput.value.trim();
+      if (!/^\d{6}$/.test(otp)) {
+        otpInput.classList.add('is-invalid');
+        return;
+      }
+      otpInput.classList.remove('is-invalid');
+
+      const btn = document.getElementById('btnVerify');
+      btn.disabled = true;
+      btn.textContent = 'Verifying...';
+
+      fetch('/api/verify-otp', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ phone: activePhone, otp })
+      })
+      .then(res => res.json())
+      .then(data => {
+        btn.disabled = false;
+        btn.innerHTML = 'Verify & Log In <i class="bi bi-shield-check"></i>';
+        if (data.success) {
+          localStorage.setItem('currentUser', JSON.stringify(data.user));
+          window.location.href = redirectUrl;
+        } else {
+          alert('Invalid OTP code. Please try again.');
+        }
+      })
+      .catch(err => {
+        btn.disabled = false;
+        btn.innerHTML = 'Verify & Log In <i class="bi bi-shield-check"></i>';
+        console.error(err);
+        alert('Verification request failed.');
+      });
+    }
+
+    function changePhone() {
+      document.getElementById('stepOtp').classList.remove('active');
+      document.getElementById('stepPhone').classList.add('active');
+      document.getElementById('loginOtp').value = '';
+    }
+  </script>
+</body>
+</html>

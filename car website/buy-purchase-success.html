@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Purchase Complete - Cars World</title>
+  <link rel="icon" type="image/x-icon" href="img/icon.png">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link href="vendor/aos/aos.css" rel="stylesheet">
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <link href="css/booking.css" rel="stylesheet">
+</head>
+<body class="success-page">
+
+<header id="header" class="fixed-top">
+  <div class="container-fluid d-flex justify-content-between align-items-center">
+    <h1 class="logo me-auto me-lg-0"><img style="height:40px" src="img/icon-removebg-preview.png"><a href="Home.html">CARS</a></h1>
+    <nav id="navbar" class="navbar order-last order-lg-0">
+      <ul>
+        <li><a href="Home.html" style="color:black">Home</a></li>
+        <li><a href="about.html" style="color:black">About</a></li>
+        <div class="dropdown">
+          <li><a href="#" class="dropbtn" style="color:black">Cars</a></li>
+          <div class="dropdown-content">
+            <a href="Toyota.html">Toyota</a><a href="BMW.html">BMW</a><a href="volkswagen.html">volkswagen</a>
+            <a href="Jaguar.html">Jaguar</a><a href="Maruti Suzuki.html">Maruti Suzuki</a><a href="Mercedes.html">Mercedes</a>
+            <a href="Hundai.html">Hundai</a><a href="Kia.html">Kia</a><a href="rolls royce.html">rolls royce</a>
+            <a href="mg.html">mg</a><a href="land rover.html">land rover</a><a href="audi.html">audi</a>
+            <a href="lamborgini.html">lamborgini</a>
+          </div>
+        </div>
+        <li><a href="booking.html" style="color:black"><i class="bi bi-calendar-check"></i> Book a Car</a></li>
+        <li><a href="feedback.html" style="color:black">Feedback Us</a></li>
+      </ul>
+      <i class="bi bi-list mobile-nav-toggle"></i>
+    </nav>
+    <form class="d-flex" action="search.php">
+      <input class="form-control me-2" type="search" placeholder="Search" name="webpage_name" aria-label="Search">
+      <button class="btn btn-outline-success" name="submit" type="submit">Search</button>
+    </form>
+  </div>
+</header>
+
+<main id="main">
+  <section style="padding:100px 0 60px">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="booking-form-wrapper text-center" style="padding:50px">
+            <div class="checkmark-circle mb-4">
+              <svg viewBox="0 0 100 100" style="width:100px;height:100px;margin:0 auto">
+                <circle cx="50" cy="50" r="45" fill="none" stroke="#34b7a7" stroke-width="4"/>
+                <path d="M28 52 L42 66 L72 36" fill="none" stroke="#34b7a7" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" class="checkmark-path"/>
+              </svg>
+            </div>
+            <h2 style="font-size:32px;color:#28a745"><i class="bi bi-check-circle-fill"></i> Purchase Successful!</h2>
+            <p class="text-muted">Congratulations on your new car. Here is your purchase receipt.</p>
+
+            <div class="alert alert-success mt-3" style="font-size:18px">
+              <strong>Transaction ID: <span id="txId" style="letter-spacing:2px"></span></strong>
+            </div>
+
+            <!-- Receipt -->
+            <div class="card border-0 shadow-sm mt-4 text-start">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center border-bottom pb-3 mb-3">
+                  <div>
+                    <h5 class="mb-0">CARS WORLD</h5>
+                    <small class="text-muted">Purchase Receipt</small>
+                  </div>
+                  <div class="text-end">
+                    <small class="text-muted">Date</small>
+                    <div id="txDate"></div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-4 text-center">
+                    <img src="img/BMW.png" id="pCarImg" class="img-fluid" style="max-height:120px" alt="Car">
+                  </div>
+                  <div class="col-md-8">
+                    <table class="table table-borderless mb-0">
+                      <tr><td><strong>Car</strong></td><td class="text-end" id="pCar">BMW 3 Series 320d M Sport</td></tr>
+                      <tr><td><strong>Year</strong></td><td class="text-end" id="pYear">2022</td></tr>
+                      <tr><td><strong>Amount Paid</strong></td><td class="text-end" id="pAmount">Rs. 45,90,000</td></tr>
+                      <tr><td><strong>Payment Mode</strong></td><td class="text-end">Online Transfer</td></tr>
+                      <tr><td><strong>Transaction ID</strong></td><td class="text-end" id="pTxId">TXN-12345678</td></tr>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- RC & Insurance -->
+            <div class="card border-0 shadow-sm mt-4 text-start">
+              <div class="card-body">
+                <h5 class="card-title"><i class="bi bi-file-earmark-text" style="color:#34b7a7"></i> RC Transfer & Insurance Guide</h5>
+                <div class="row mt-3">
+                  <div class="col-md-6">
+                    <h6><i class="bi bi-card-list text-primary"></i> RC Transfer</h6>
+                    <ul style="font-size:14px">
+                      <li>Form 29 & 30 filled and signed</li>
+                      <li>NOC from RTO (if interstate)</li>
+                      <li>PUC certificate</li>
+                      <li>Insurance policy transfer</li>
+                      <li>Address proof of buyer</li>
+                    </ul>
+                  </div>
+                  <div class="col-md-6">
+                    <h6><i class="bi bi-shield-check text-success"></i> Insurance Transfer</h6>
+                    <ul style="font-size:14px">
+                      <li>Contact insurer within 14 days</li>
+                      <li>Submit new RC copy</li>
+                      <li>Pay pro-rata premium difference</li>
+                      <li>No Claim Bonus transfer form</li>
+                      <li>Updated policy in 7 working days</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-4 d-flex justify-content-center gap-3 flex-wrap">
+              <button onclick="downloadReceipt()" class="btn-main" style="background:linear-gradient(135deg,#ffbb2c,#e6a800)"><i class="bi bi-download"></i> Download Purchase Summary (PDF)</button>
+              <a href="feedback.html" class="btn-main" style="background:linear-gradient(135deg,#17a2b8,#138496)"><i class="bi bi-headset"></i> Contact Support</a>
+              <a href="Home.html" class="btn-main" style="background:linear-gradient(135deg,#6c757d,#5a6268)"><i class="bi bi-house"></i> Home</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer id="footer">
+  <div class="container">
+    <h2>Contact Me</h2>
+    <div class="row">
+      <div class="col-lg-5" style="font-size:large">
+        <a href="https://www.facebook.com/" class="facebook"><i class="bi bi-facebook"> :- facebook </i></a><br><br>
+        <a href="https://www.instagram.com/car_techinfo" class="instagram"><i class="bi bi-instagram"> :- instagram </i></a>
+      </div>
+      <div class="col-lg-6">
+        <div class="dropdown" style="display:inline-block;margin-right:20px">
+          <li style="list-style:none"><a href="#" class="dropbtn">Cars</a></li>
+          <div class="dropdown-content">
+            <a href="Toyota.html">Toyota</a><br><a href="BMW.html">BMW</a><br><a href="volkswagen.html">volkswagen</a><br>
+            <a href="Jaguar.html">Jaguar</a><br><a href="Maruti Suzuki.html">Maruti Suzuki</a><br><a href="Mercedes.html">Mercedes</a><br>
+            <a href="Hundai.html">Hundai</a><br><a href="Kia.html">Kia</a>
+          </div>
+        </div>
+        <li style="list-style:none;display:inline"><a href="feedback.html">Feedback Us</a></li>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div id="preloader"></div>
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+<script src="vendor/aos/aos.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/booking.js"></script>
+<script>
+  var txId = BookingUtils.genId('TXN', 8);
+  document.getElementById('txId').textContent = txId;
+  document.getElementById('pTxId').textContent = txId;
+  document.getElementById('txDate').textContent = BookingUtils.todayDate();
+
+  function downloadReceipt() {
+    var lines = [];
+    lines.push('CARS WORLD - PURCHASE RECEIPT');
+    lines.push('==============================');
+    lines.push('Transaction ID: ' + txId);
+    lines.push('Date: ' + BookingUtils.todayDateTime());
+    lines.push('');
+    lines.push('Car: ' + document.getElementById('pCar').textContent);
+    lines.push('Year: ' + document.getElementById('pYear').textContent);
+    lines.push('Amount Paid: ' + document.getElementById('pAmount').textContent);
+    lines.push('Payment Mode: Online Transfer');
+    lines.push('');
+    lines.push('RC Transfer Documents Required:');
+    lines.push('  - Form 29 & 30');
+    lines.push('  - NOC from RTO (if interstate)');
+    lines.push('  - PUC certificate');
+    lines.push('  - Insurance policy transfer');
+    lines.push('  - Address proof of buyer');
+    lines.push('');
+    lines.push('Insurance Transfer Steps:');
+    lines.push('  - Contact insurer within 14 days');
+    lines.push('  - Submit new RC copy');
+    lines.push('  - Pay pro-rata premium difference');
+    lines.push('  - NCB transfer form');
+    lines.push('');
+    lines.push('Thank you for choosing Cars World!');
+    BookingUtils.downloadReceipt('Purchase-' + txId + '.txt', lines.join('\n'));
+  }
+</script>
+</body>
+</html>
+
